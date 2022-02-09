@@ -1,0 +1,84 @@
+class Emp{
+IMPORTANT=>	[//declare only those variables , which are actual property of class.]
+   String name;
+   int age;
+   float salary;
+   String designation;
+  // Scanner sc=new Scanner(System.in);//it is not a property of employee class .
+// It is an entity to read from keyboeard. So do not declare it as class property.Wherever the req. is ,create and use there.
+   public Emp(){
+     Scanner sc=new Scanner(System.in);//it should be declared here.
+     System.out.println("Enter the name");	
+     this.name=sc.next();
+     ..........  
+   }
+   public void raiseSalary(){
+   	Scanner sc=new Scanner(System.in);//declare it wherever it is required.
+   	System.out.println("Enter Salary to be raised for: "+this.name);
+        float sal=sc.nextFloat();
+   	this.salary=this.salary+sal;
+        if(this.salary<0)this.salary=0;
+   }
+--------------------------------------------------------------------------------
+CLass Room{
+  int length;
+  int breadth;
+  Room(){
+   length=10;
+   breadth=20;
+    }
+}
+
+main(){
+Room r1=new Room();  //Room() is default construcutor. So, first Room() is called and legth is set to 10 and breadth =20;
+r1.length=-10;  then length is set to -10 and breadth remain same .
+}
+//SO first final length=-10 and breadth =20;
+------------------------------------------------------------------------
+Three main properties of OOPS:- 
+                    properties derived from them
+1)Encapsulation          ===============>    Abstraction
+2)Inheritence            ===============>    re-usability
+3)Polymorphism           ===============>    Overloading and overriding.
+--------------------------------------------------------
+Encapsulation - for Data hiding    and Abstraction is for hiding logic(implementation part).
+*An encapsulated class is a pure Encapsulated class when it has all its variables Private and all its methods Public.
+------------------------------------------------
+Why we require data hiding?
+eg. of a non-Encapsulated class.
+
+class Car{
+  float speed;
+  void acc(){
+	speed++;
+	}
+  void break(){
+    	speed--;
+  	}
+}
+Car c1=new Car();
+c1.speed=1000;//This the issue. User can manipulte with some sensitve things .So data Hiding is required. We have to make speed variable private and use getter and setter methods to change it 
+c1.acc();
+c1.break();
+-----------------------------------------------------------------------------------------
+eg. of an Encapsulated class.
+
+class Car{
+  private float speed;
+  public void setSpeed(int speed){
+	if(speed>0 && speed<60){
+	      this.speed=speed;
+          }
+        else(){SOP("Sorry speed cannot be set");}
+  }
+  public int getSpeed(){
+    	return speed;
+  }
+}
+Car c1=new Car();
+c1.speed=1000; 
+c1.setspeed(56);//yes
+c1.setSpeed(-90);//No
+c1.Setspeed(900);//No
+c1.getSpeed();
+--------------------------------------------------------------------------------------------------------

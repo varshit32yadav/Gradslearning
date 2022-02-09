@@ -1,0 +1,56 @@
+import java.util.*;
+class Emp{
+	//declare only those variables , which are actual property of class.
+   String name;
+   int age;
+   float salary;
+   String designation;
+  // Scanner sc=new Scanner(System.in);//it is not a property of employee class . It is an entity to read from keyboeard. So do not declare it as class property.Wherever the req. is ,create and use there.
+   public Emp(){
+     Scanner sc=new Scanner(System.in);//it should be declared here.
+     System.out.println("Enter the name");	
+     this.name=sc.next();
+     System.out.println("Enter the age");
+     this.age=sc.nextInt();
+     System.out.println("Enter the Salary");
+     this.salary=sc.nextFloat();
+     System.out.println("Enter the designation");
+     this.designation=sc.next();
+    
+   }
+   public void display(){
+    System.out.println("Name:        "+name+"\n"+"age:         "+age+"\n"+
+    	"salary:      "+salary+"\n"+"designation: "+designation);
+    System.out.println("----------------------");
+   }
+   public void raiseSalary(){
+   	Scanner sc=new Scanner(System.in);//declare it wherever it is required.
+   	System.out.println("Enter Salary to be raised for: "+this.name);
+       float sal=sc.nextFloat();
+   	this.salary=this.salary+sal;
+   	if(this.salary<0)this.salary=0;
+   }
+
+}
+
+public class EmpMain{
+	public static void main(String[] args) {
+		// Emp e1=new Emp("Raju",21,25000,"Tester");
+		// Emp e2=new Emp("Manju",31,55000,"Programmer");
+		// Emp e3=new Emp("Sanju",41,85000,"Manager");
+		Emp e1=new Emp();
+		Emp e2=new Emp();
+		Emp e3=new Emp();
+		e1.display();
+		e2.display();
+		e3.display();
+		System.out.println("Raise is going on");
+		e1.raiseSalary();
+		e2.raiseSalary();
+		e3.raiseSalary();
+		System.out.println("--------------------         Raised Salary        -------------------");
+		e1.display();
+		e2.display();
+		e3.display();
+	}
+}

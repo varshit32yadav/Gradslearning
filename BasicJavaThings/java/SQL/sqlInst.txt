@@ -1,0 +1,101 @@
+create table Emp(name VARCHAR(200),age number(2));
+select * from Emp;
+insert into Emp()
+
+
+---------------------------------------------------
+C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib   (path of jar file that contians JDBC driver [ojdbc6.jar]).
+
+set classpath=ojdbc6.jar;.;%classpath%
+------------------------------------------------------
+JBC:
+import java.sql--
+
+why we prefer database over File
+
+1)Security
+2)TYpe checking(there is no constraint..you can go inside file and change age from number to String );
+3)NO duplicates are allowed (Primary Key in db is there).
+4)It can be accessed from any location,
+5)Once you made change in a file,it is permanent. In database you can commit ,rollback(i.e Transactions).
+Problem 
+-------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+=>types of drivers [Driver contains all the APIs to connect woth java program].
+
+i)JDBC-ODBC[if Windows, use this Driver]
+ii)Part-java Part-Native driver
+iii)Middleware[used when Server helps to connect]
+iv)thin Driver/Pure Java Driver(directly conncet from any where.It is pure Java driver.)[always use this driver]
+--------------------------------------------------------------------------------------------------
+JDBC steps to connect:
+1)Load the driver (Class.forName(""));
+2)Connect to database (DriverMAnager manages the driver)
+3)create statement
+4)Execute the queries
+----------
+try{
+
+1)  class.forName("oracle.jdbc.driver.OracleDriver");//Loading the driver  ["oracle.jdbc.driver.OracleDriver"  this is the Pure java Driver for Oracle].
+2)  connection con=DRiverMAnager("jdbc:oracle":thin:@localhost:1521:xe" ,"system" ,"tiger");
+                              ("url"                                 ,"usernmae","password");
+3)  statement st=con.createStatement();
+4)  st.executeUpdate() //sending recordfrom Program to datatbase
+   
+   // sending from Database to application  [eg. select *from Emp]
+   st.exectueQuery()
+   Results rs=st.exectueQuery("select *from Emp");
+
+   while(rs.hasNext()){  //to slect records from table from datatbase to program
+   rs.getString("Column_name OR column number");
+   rs.getString(1)
+   }
+   rs.close();
+   st.close();
+   con.close();  //close all the connections to release the resources.
+   
+  //semding data from java Program to dtatabase
+  st.executeUpdate("insert into Emp values ('Manohar',30)");  //these are pure SQL queries.
+  
+}                          
+-----------------------------------------------------------------------------
+i/o package things:
+
+2 streams to read and write :
+1)Ascii             unicode
+2)Byte stream       character stream
+2)InputStream       Reader
+3)OutputsTream      Writer
+
+Some of the classes to read and write:
+FileWriter ,FileReader,InputStreamReader,PrintWriter,BufferedReader,File
+-----------------------------------------------------------------
+type of statements in JDBC:
+1)Statement    [compile everytime when you create a query]
+2)PreparedStatement[compile only ones, vlaues are tsken during runtime from eg.keyboard]
+3)CallableStatement[to call stored procedures]
+4)BatchStatement[all queries runs at once oe no query is run if some exception occured]
+-----------------------------------------------------------------------------------------------------------------
+[Point to be noted]:
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tiger" ); //("url","usernmae","password");
+      Statement stmt=con.createStatement();
+      //ResultSet res=stmt.executeQuery("select * from employee where emp_id=id");//this will not recognize id as it is a variable over here not some number,so comparison is not done[Second option is use prepared statement]
+      ResultSet res=stmt.executeQuery("select * from employee where emp_id="+id);
+      while(res.next()){
+        	System.out.println("Employee_id :"+res.getString(1));
+        	System.out.println("Name        :"+res.getString(2));
+        	System.out.println("Age         :"+res.getString(3));
+        	System.out.println("Salary      :"+res.getString(4));
+        	System.out.println("designation :"+res.getString(5));
+      }
+---------------------------------------------------------------------------------------------------------------------
+PreparedStatement p=con.prepareStatement(select * from Employee where emp_id=?");
+p.setInt(1,id);
+ResultSet r=p.execute();
+
+
+
+
+
+

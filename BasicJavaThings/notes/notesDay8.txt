@@ -1,0 +1,82 @@
+JAVA I/O:
+----------
+Problem with Scanner class is that it doesnot clean buffer memmory.
+
+eg.
+  Scanner sc=new Scanner(System.in);//taking the input fro keyboard.
+  String a=sc.next();
+  int b=sc.nextInt();
+  long c=sc.nextLong();
+  String add=sc.nextLine();
+  int g=sc.nextFloat();
+//everything will enter but (add) will be skipped by Scanner while reading from the keyboard..beacause Scanner doesnt clean memory from the buffer for sc.next()[for name].
+Hence, Scanener thinks that input is already taken.
+-----------------------------------------------------
+thats why we use BufferdReader for input : as it reads directly from buffer, it gets cleaned up..everytime your read from it.
+
+1)BufferdReader -    to read input from buffer
+2)InputStreamReader-to read input from keyboard
+3)FileReader       - to read input from file
+----------------------------------------------------------------------
+eg:-public static void main(String[] args)  { //or throws Exception or use try/catch because IO is checked Exception ,compiler will force you to put Try catch block .
+		try{
+				 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+				 
+				  System.out.println("enter nmae");
+				  String a=br.readLine();
+				  System.out.println("age");
+				  int b=Integer.parseInt(br.readLine());//by default bufferreader everything in terms of String so convert in Int.
+				  System.out.println("number");
+				  long c=Integer.parseInt(br.readLine());
+				  System.out.println("address");
+				  String add=br.readLine();
+			}
+		catch(Exception e){
+			System.out.println("IO Exception");
+		}	
+		 
+	}
+------------------------------------------------------------------------------------------------------------------------
+[Reading FROM THE FILE:]
+
+while taking input of the file name : always enter the full name along with the extension eg(abc.txt)
+
+eg:BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+ 			System.out.println("Enter File name");
+ 			String fname=br.readLine();
+ 			File f1=new File(fname);
+ 			if(f1.exists()){
+ 				BufferedReader fr=new BufferedReader(new FileReader(f1));//you read from any source(keyboard,file,socket)..you should also read from buffer memory so that it is clear everytime for the new input read
+                System.out.println(fr.readLine());
+                String line="null";
+                line=fr.readLine();
+                while((line=fr.readLine())!=null){
+                	System.out.println(line);
+
+                }
+                fr.close();//where you read the file close it there only.As the file must be allocating some resources ,so when you close the file.It will free the resources also.
+ 			}
+ 			else{
+ 				System.out.println("File not found bhaiya");
+ 			}
+ 			br.close();//same reason.
+-----------------------------------------------------------------------------------
+[Writing from the file]:
+
+BufferedReader can read from any source.
+PrintWriter can write to any destination.
+
+1) while reading any data, it is read from buffer memory.
+Similarly, while writing any data , it is send to buffer first.
+WE use FLUSH() method so that the data in the buffer can be flushed out to the output file in which we have to write , in one go .
+---------------------------------------------
+[Write example:]
+PrintWriter pr=new PrintWriter(new FileOutputStream("notesDay8.txt",true));//by default write Operation overwrites everything inside the file,So put (true)to append the file rather then overwriting everything from it.
+        	
+            for(int i=0;i<args.length;i++){
+               pr.println(args[i]);//it is the method that performs write to the file.
+            }
+        	pr.flush();//while writing any data,it is send to buffer. So flush the data from buffer to the output stream file.
+        	pr.close();//all the resources will be released.
+-------------------------------------------------------------------------------------------------------- 
+ 

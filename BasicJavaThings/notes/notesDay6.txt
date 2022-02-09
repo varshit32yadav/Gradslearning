@@ -1,0 +1,188 @@
+Exception:
+ 
+Checked Exceptions:Or Compiled Time Excepiton:
+//compiler gives error if exception is not handled with try/Catch block.
+//compiler forces you to put try/Catch blocks.
+//eg.I/O Exception,SQL Exception, Socket Exception.
+
+Unchecked Exceptions Or Runtime Exception:
+//Compiler compiles the program if Exception is not handled with try/Catch block.
+//compiler doesn't forces you to put try/Catch blocks.
+//eg. Arithmatic Exception,NullPointer Exception, InputMissmatch Exception,Arrayiob Exception.
+---------------------------------------------------------------------------------------------
+Try: place where Exception MIGHT occur.
+// Try block cant be written alone.(with catch or finally should be there.)
+
+Catch:[handles Exception. 1 catch block can handle only 1 Exception]
+Finally://always executes doesn't matter if Exception has occured or not.
+//it is not an Exception handler.
+
+Throw: to manually throw an Exception .
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+If you put  return statement inside Try block ,then it jumps to finally block and executes and then leave the program.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+if Exception occurs: FLOW
+then first Catch is checked ,then finally is checked then comes out of the program.
+----------------------------------------------------------------------------------------=
+//   	try{
+
+   	// 	int a=5;
+   	// 	for(int i=1;i<=10;i++){
+   	// 		int s=a/(a-i);
+   	// 		System.out.println(s);
+   	// 	if(i==5)throw new NullPointerException();
+   	// 	//if(i==4)throw new NullPointerException();
+   	// 	if(i==7)return; //if return then it directly goes to finally (executes it an then terminates the program)System.out.println("Program Comtinues");is not printed
+   	// 	}
+   	// }	
+   	// //System.out.println("Program Comtinues"); you cant put any statement in between the blocks
+   	// catch( NullPointerException e){
+   	// 	System.out.println("NullPointerException occured");
+   	// }	
+   	// catch(Exception e)	{
+   	// 	System.out.println("default Exception Handler");
+   	// }
+
+   	// finally{
+   	// 	System.out.println("Thank you all");
+   	// }
+   	// System.out.println("Program Comtinues");
+        //-----------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+if(i==4)
+{
+  throw new NullPointerException();
+  //this will get compiled, even the Exception has occured
+  //it is an Unchecked Exception so compiler ignores the try catch block.
+}
+if(i==4)
+  throw new IOException();
+  //not compiled
+  //it is Checked Exception, you have to put Exception in try/Catch blcok.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//checked Exception extends Exception Class
+//unchecked Exception extends RuntimeException Class
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//THROWS KEYWORD: is used with method signature. 
+eg. public void abc() throws ArithmaticException,NullPointerException,IOException
+{
+}
+all the exceptions that occured in abc() will be handled by its caller or if not handled by its caller then its caller's caller will handle and so on.....
+public void xyz()
+{abc();
+//handle's exception
+}//xyz will handle Exception
+
+//UNCHECKED Exceptions are automatically passed with throws keyword without mentioning them in the signature part.
+//CHECKED Exceptions need to be mentioned manually with throws keyword in the signature part.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+User Defined Exceptions:
+2 minimum requiremtns:
+1) should have 2 construcotrs
+constructor();
+constructor(String);
+2) Should extend either RuntimeException class(if you want to create uncheked Exception)
+or Exception class (if you want to create checked exception).
+eg
+class UserException extends Exception
+{
+	UserException()
+	{
+	}
+	UserException(String msg)
+	{
+		super(msg);//calling super class (Exception)
+	}
+	public void display()
+	{
+		System.out.println("From display() method of Custom exception class");
+	}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+eg.) overall:
+import java.io.*;
+import java.sql.SQLException;
+import java.util.*;
+class A{
+   public void abc()  throws ArithmeticException, NullPointerException, IOException, SQLException{  //these exceptions occured in abc() will be handled by its caller or so on..
+      int a = 50;
+         for(int i=1; i<=20; i++)
+         {
+            System.out.println(i);
+            int res = a/(a-i);
+            if(i==150)
+               throw new NullPointerException();
+            if(i==134)
+               throw new IOException();
+            if(i==100)
+               return;
+            if(i==8)
+               throw new ArrayIndexOutOfBoundsException();
+            if(i==6)
+               throw new SQLException();
+            if(i==2)
+               throw new UserException("Created the Exception just for Demo"); 
+         }
+   }
+   public void xyz() throws ArithmeticException, NullPointerException, IOException, SQLException{  //now it passes exception handle pas to atoz
+      abc();
+   } 
+   public void atoz() throws ArithmeticException, NullPointerException, IOException, SQLException{  //now it throws all these exceptions  to main to handle all of them
+      xyz();
+   }
+}
+public class ExceptionMy{
+   public static void main(String[] args) {//abc()-->xyz()-->atoz()-->main()-->JVM()-->terminates the program  :=>(passing the exception handling part to their callers).
+     
+     try {A a1=new A();
+            a1.atoz();
+         }
+      catch(IOException e)
+      {
+         System.out.println("IO Exception occured....");
+      }
+      catch(NullPointerException e)
+      {
+         System.out.println("NULL Exception occured....");
+      }
+      catch(UserException e){
+         e.display();
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+     
+      catch(Exception e)
+      {
+         System.out.println("Default exception handler");//if all above catch are not able to handle any Exception then it will handle.
+      }
+      finally{
+        System.out.println("thanks");
+      }
+      System.out.println("Program Continues....");
+   }
+}
+class UserException extends RuntimeException{ //creating user Excdption of Unchecked Exception type as it extends RuntimeException
+   UserException(){
+   }
+   UserException(String msg){
+      super(msg);//calling the super class(RuntimeException)
+   }
+   void display(){
+      System.out.println("From display() method of Custom exception class");
+   }
+
+}
+/*
+F:\JavaTraining\java\Exception>java ExceptionMy
+1
+2
+From display() method of Custom exception class
+Created the Exception just for Demo
+UserException: Created the Exception just for Demo
+        at A.abc(ExceptionMy.java:22)
+        at A.xyz(ExceptionMy.java:26)
+        at A.atoz(ExceptionMy.java:29)
+        at ExceptionMy.main(ExceptionMy.java:36)
+thanks
+Program Continues....
+*/--------------------------------------------------------------------------------------------------------------------------------------------------------------------------

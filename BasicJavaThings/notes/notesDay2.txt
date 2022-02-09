@@ -1,0 +1,165 @@
+class Room{
+	int length,breadth;
+	
+	public void area() {
+		System.out.println(length*breadth);
+	}
+}
+public class RoomMain{
+	public static void main(String[] args) {
+		Room r1; 
+		r1=new Room();
+		r1.area();   //Ans :0 . Because cosntructor Room() will give you default intialization and default init. of int is 0. len=0,breadth=0;
+	}
+}
+--------------------------------------------------------------------------
+public class RoomMain{
+	public static void main(String[] args) {
+		Room r2=new Room(30,40);
+		r2.area();
+		//r2 is variable of class holding the reference of this object(object Refence variable). [Class is also called user defined datatype eg. Room r1;   primitive datatype eg. int r1]
+		//new variable creates heap memory Room(); [here it will take 8 bytes heap memory as 2 integer variables are there(lenght and breadth)];
+		//Room(30,40)it is the constructor which assignd th e value to the vauirables in the memory.
+
+	}
+}
+-------------------------------------------------------------------
+3)class Room{
+	int length,breadth;
+	Room(int length,int breadth){
+       length=length;    
+       breadth=breadth;
+	}
+	public void area() {
+		System.out.println(length*breadth); //Ans is 0 as both instance variable and local variable are of same name so instance vsriable will be 0 only.
+		//inorder to assign value to instamce variable when both the names are same (this.length=length and this.breadth=breadth)
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------
+class Room{
+	int length,breadth;
+	
+	public void area() {
+		System.out.println(length*breadth);
+	}
+}
+public class RoomMain{
+	public static void main(String[] args) {
+		Room r2;
+		r2.area();	
+	}
+}
+// F:\JavaTraining\java\Areas>javac RoomMain.java
+// RoomMain.java:11: error: variable r2 might not have been initialized
+//                 r2.area();
+//                 ^
+// 1 error, you have to initialize it with the object of this class
+// Room r2= new Room();
+----------------------------------------------------------------------------------------------
+OUTPUTS-
+1)class Room{
+	int length,breadth;
+	Room(){
+		length=10;
+		breadth=20;
+	}
+	Room(int x,int y){
+       length=x;    
+       breadth=y;
+	}
+	public void area() {
+		System.out.println(length*breadth);
+	}
+}
+public class RoomMain{
+	public static void main(String[] args) {
+		Room r1=new Room();
+		Room r2=new Room(30,40);//initialied r2 with the object of this class
+		r1.area();
+		r2.area();
+		System.out.println("1)----------------------------");
+		r1.length=50;
+		r2.length=60;
+		r1.area();
+		r2.area();
+		System.out.println("2)----------------------------");
+   		r2=r1;  //both the obj ref variables are pointing to the same address in the heap memory.
+   		r1.length=70;
+   		r2.breadth=80;
+   		r1.area();
+		r2.area();
+		System.out.println("----------------------------");
+	}
+}
+// F:\JavaTraining\java\Areas>javac RoomMain.java
+
+// F:\JavaTraining\java\Areas>java RoomMain
+// 200
+// 1200
+// 1)----------------------------
+// 1000
+// 2400
+// 2)----------------------------
+// 5600
+// 5600
+// ----------------------------
+
+------------------------------------------------------------------------------------------
+THIS keyword is used to i)invoke variable ii)invoke method  iii)invoke constructor(but it should be the first statement). 
+2)class Room{
+	int length,breadth;
+	Room(){
+		this("abc");//constructor call statement should be always the First Statement.
+		System.out.println("Ans is :");
+
+	}
+	Room(String str){
+      System.out.println("--------------------");
+	}
+	Room(int length,int breadth){
+	   this();
+       this.length=length;    
+       this.breadth=breadth;
+       this.area();//to invoke area method everytime after values are assigned.
+	}
+	public void area() {
+		System.out.println(length*breadth);
+	}
+}
+public class RoomMain2{
+	public static void main(String[] args) {
+		
+		Room r1=new Room(30,40);
+		Room r2=new Room(50,60);
+		Room r3=new Room(70,80);
+		Room r4=new Room(90,100);
+	}
+}
+// F:\JavaTraining\java\Areas>java RoomMain2
+// --------------------
+// Ans is :
+// 1200
+// --------------------
+// Ans is :
+// 3000
+// --------------------
+// Ans is :
+// 5600
+// --------------------
+// Ans is :
+// 9000
+------------------------------------------------------------------------------------------------------
+Constructor can contian business logic same as functions can 
+But ,it can be called once per object. Whereas,functions can be called multiple times.
+SO ,when logic occurs multiple times then it should be placed in funciton ,else if it occurs only once and is not changed then it can be placed in constructor.q
+eg.
+Class Room{
+	public Room(){ //constructor containig logic.
+	      try{
+		 for(int i=0;i<5;i++){SOP("HI");}
+		}
+		catch(Exception e){SOP(e.getMessage());}
+	}
+}
+ ---------------------------------------------------------------------------------------------------

@@ -1,0 +1,159 @@
+
+[DEFAULT AND STATIC KEYWORDS WITH INTERFACE METHODS]:
+
+interface I{//everything inside Interface is by default public
+
+	//abstract void xyz();//without body	
+	default void abc(){  //with body (Java8 addtiion)    default is a keyword not an access modifier
+	System.out.println("I");
+	}
+
+}
+interface J {
+	default void abc(){
+		System.out.println("J");
+	}
+	static void wxy(){
+		System.out.println("Static method can be called wothout super Keyword");
+	}
+}
+
+class A implements I,J{ 
+	public void abc(){
+		//when we inherit multiple interfaces with same methods.
+		I.super.abc();//if more thn 1 intreface have the same default method then either call it like I.super.abc()
+		System.out.println("Hi ffrom A class");//Or override it .
+		J.super.abc();
+		J.wxy();//Static method can be called wothout super Keyword
+	}
+}
+public class DAY1{
+	public static void main(String[] args) {
+		A a=new A();
+          a.abc();
+	}
+}--------------------------------------------------------------------------------------------------------
+Outer class cant be Static .
+only inner classes can be static(everything inside it is static).(eg of static classes -System,Arrays,MAth)
+A static inner class is a nested class which is a static member of the outer class.
+ It can be accessed without instantiating the outer class, using other static members. 
+Just like static members, a static nested class does not have access to the instance variables and methods of the outer class
+-------------------------------------------
+Rather then creating final class and making its constructor private,we can go with Interface.
+------------------------------------
+Markable Interface:No methods inside them( eg.Serializable,Cloneable ..etc)
+Normal Interface: Any number of abtract method.
+Functional Interface:They have only one method inside them.. ( eg. Runnable,Callable).
+-------------------------------------------------------
+
+Lambda Funtions:[for logical Secutiry]--> Main Purpose.
+they depends on Functional interface.(ony one method should be here inside the interface).
+
+Puprose of Lambda functions:
+Suppose ,if you have to execute the logic only once
+2) lazy evaluation is done.When required then only created and called.   
+3)To reduce the code.
+-----
+Diff between Anonymous class and LAmbda Functions:
+
+Anonymous classes:
+they are created on the fly and there objects cant be created.
+but their .class file is created as their residual.So we can get to know their name(from.class file).Hence, not the safest one.
+
+Lambda funciton:
+YOu create the the logic on the fly ..you call the interface mehtod on the fly
+ ...and no  .class file is created as residual of it .So ne prrof is left behind.
+Hence saftest among all.
+---------------------------------------------
+eg:
+interface I{
+	void abc();
+}
+class A implements I{
+	public void abc(){
+		System.out.println("Hi from A");
+	}
+}
+public class Lambda{
+	public static void main(String[] args) {
+	//three ways to access the implementation method of interface I
+	//1)
+		A a1=new A();
+		a1.abc();//now you can create multiple onjects of class A and call abc() funvtion.Whicch is not secrue .
+	
+    //2)
+       I i1=new I()//This is safer/secured then above one.
+        {  //you are creating an obj of INterface I on the fly  [basically its an anonymous class which implements Interface I.as we dont know the name of the class ,so no on can create its object and use the logic of the interface.But its .class is creaetd fromtheor we can know its name.Hence nit proper safe.]
+         	public void abc(){
+         		System.out.println("From abc() method");
+         	}
+
+         }; //[Lambda$1.class is this anonymous class and is re-usable]
+        i1.abc();//now dont have a seperate class to create its multiple objects and call abc()multiple times. 
+	    //Now no one can create a seperate object out of it
+	    I i2=new I(){
+	    	public void abc(){
+	    		System.out.println("Second time from anonnymous class");
+	    	}
+	    };
+	    i2.abc();//it is called again...hence we can call the abc() method of the interface I as many time by creating multiple anonymous classes.
+     
+
+	//3 safest among all is use of Lambda Functions:
+	    I i3=()->System.out.println("Hi from LAmbda function");
+	    i3.abc();  //both the logic and the calling is on hte fly and no residual in the form of  .class file is created.
+	}
+}
+--------------------------------------------------------------------------------------------------- 
+Lambda Function is only for Interfaces(that too only functional int)
+not for class. 
+---------------------------------------------------------------------------------------------
+Optional class is used to avoid Exception in a standard way by handling null content by wrapping up as an object.
+----------------------------------------------------------------------------------------------------------
+[METHOD REFERNCE:]
+
+eg....
+class A implements Runnable{
+	public void run(){
+		for(int i=0;i<=5;i++)System.out.println("from A thread "+i );
+	}
+}
+class B{  //make this class as thread and execute its method that is static (as run()is non static)without extending Thread or implementnig Runnable
+ 
+  B(){
+  	for(int i=0;i<=5;i++)System.out.println("from B(constructor) Thread "+i );
+  }
+  public static void abc(){
+  	for(int i=0;i<=5;i++)System.out.println("from B(abc) Thread "+i );
+  } 
+  public void xyz(){
+  	for(int i=0;i<=5;i++)System.out.println("from B(xyz) Thread "+i );
+  }   
+}
+
+public class Threads{
+	public static void main(String[] args) {
+		{ 
+		   A r=new A();
+		   Thread t=new Thread(r);
+		   t.start();
+
+           for(int i=0;i<=5;i++)System.out.println("main Thread "+i);
+           
+           //Method Reference:
+           Thread t2=new Thread(B::abc);//This is called Method Referencing..(B::abc)
+           t2.start();
+           //internally thread class run() is going to have a refernce to abc() in B class
+		   
+		   Thread t3=new Thread( new B()::xyz);//if non static-method then create obj of the class and then do method Refernce
+            t3.start();
+
+            //Construcutor Refernce
+            Thread t4=new Thread(B::new); //Runnable is now refering to the construcotr
+
+
+		}
+	}
+}---------------------------------------------------------------------------------------------------------
+
+
