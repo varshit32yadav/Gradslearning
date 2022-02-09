@@ -1,0 +1,38 @@
+DEVOPS:(Development and Operations in combination)[DEvelopmetn tools +Management(OPerational)tools]
+
+--------------
+GIT:is one of the Devops tool.
+=>it is a SCM(source code Management)tool.
+=>it is also a VCS(Version control System).
+--------------------------------------------------
+1)with the help of Git , we can have backup of our code to some Git repository. 
+Advantage:
+1)Remote working
+2)If system crashes (then we have backup)
+3)If multiple developers areworking on a same project,then they can pusht the source code to the 
+common repository and everyone can have access to that repository.
+-------------------------------------------------
+Git: it is a command line tool installed at client side.[other tools similar to Git eg perforce,svn,clearcase]
+Client side we have a [local repository].
+
+Github:It is a Remote server central repository ,where anyone can push the data.[other eg.bitbucket]
+It will be available on cloud as a [remote repository].
+--------------------------------------------------------------------------------------
+In client side[local Rrepository]:
+when you create a git project by [git init]:
+[.git]folder is created which will contain all the information about the channges made to the code by whom ,when and all.
+
+as soon as you create git project by[ git init]:it will internally divide you folder into 3 parts:
+1)working direcctory
+2)staging area
+3)local repository
+
+YOur all work will be done in working area [git init]..
+from there you will passs work to staging area by command[git add .] then to local repository by command[git command -m "First commit"] 
+..and then psuh it [git push origin master] to your remote repository in server side[Github]
+
+-----------------------------------------------------
+[git add] comamnd:
+[git add abc.java ] to add single file to the repo..
+[git add .]to add all the files in the folder to the repo..
+-----------------------------------------------------
