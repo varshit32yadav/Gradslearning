@@ -9,8 +9,8 @@ git log //optional
 git remote add origin //https:
 git push -u origin master
 
---------------
-GIT:is one of the Devops tool.
+--------------------------------
+GIT:is one of the Devops tool.[for client side..not Server side]
 =>it is a SCM(source code Management)tool.
 =>it is also a VCS(Version control System).
 --------------------------------------------------
@@ -40,25 +40,17 @@ YOur all work will be done in working area [git init]..
 from there you will passs work to staging area by command[git add .] then to local repository by command[git command -m "First commit"] 
 ..and then psuh it [git push origin master] to your remote repository in server side[Github]
 
------------------------------------------------------
+-------------------------------------------------------------------------------------
 [git add] comamnd:
 [git add abc.java ] to add single file to the repo..
 [git add .]to add all the files in the folder to the repo..
------------------------------------------------------
+---------------------------------------------------------------------------------------
 There are various branches:
 [for login you want diff branch to be created,for validation you want diff branch to be created ...so all these you dont want to modify in a master branch so]:-
 if multiple developers are working on same reository,then they will be pushing to differnet branches
 and all the branches will merge together to form main branch that is [master branch].
 ---------------------------------------------------------------------------------------------------------------
-[CREATE A BRANCH]:
 
-If you want to work on something else ,then you should create a seperate branch for that..
-command: [git branch mynewBranch] ...now whatever datat was available to master branch ,it will be available to this branch also
-
-[SWITCH BRANCH]:
-command to switch branch: [git checkout branch-name]: in whichever branch you are ,
-only that branch content you can see.Other branch data will be hide from it in the folder
--------------------------------------------------------------------------------------
  ! [rejected]        master -> master (fetch first)
 error: failed to push some refs to 'https://github.com/varshit32yadav/varshit32yadav.git'
 hint: Updates were rejected because the remote contains work that you do
@@ -75,6 +67,43 @@ comand:[git pull --rebase origin master ]:
 By this command we will pull the file from remote to 
 local repo.. and then we gonna place the commits one after the other in local repo.
 NOw the branches have been sequenced properly and we are ready to push to our remote reository by
-performing [git push -u orgin master]for pushing the data to remote repo.
+performing [git push -u origin master]for pushing the data to remote repo.
 ----------------------------------------------------------------------------------------
+[CREATE A BRANCH]:
+
+If you want to work on something else ,then you should create a seperate branch for that..
+command: [git branch mynewBranch] ...now whatever datat was available to master branch ,it will be available to this branch also
+
+[SWITCH BRANCH]:
+command to switch branch: [git checkout branch-name]: in whichever branch you are ,
+only that branch content you can see.Other branch data will be hide from it in the folder
+-------------------------------------------------------------------------------------
+[MERGE THE BRANCHES]:
+
+eg. to merge new branch content to master branch then you shpuld be inside master branch first and then the command is:
+[git merge myNewBranch]
+------------------------------------------------------------------------------------------
+[DELETE A BRANCH from local repo ]:
+[git branch -d myNewBranch  or git --delete myNewBranch ]
+
+[to delete branch from remote repository]:
+[git push origin --delete myNewBranch]
+------------------------------------------------------------------------------------------
+[Tagging]:to allocate version number
+
+to assign tag to the last commit you have done:[Last tagging Content]
+command to assign tag to the last commit:[git tag v2.0]
+
+to assign tag to the commits that had happened previously:[git tag v1.0 (commit code)]
+{put some part of the commit code..then also it will work}
+
+command to check tag:[git tag]
+command to tag with particular message:[git tag -a v2.2 -m "final release"]
+show the tag:[git show v2.1]
+all tags with version 2:[git tag -l "v2.*"]
+all tags that ends with version .1:[git tag -l "v*.1"]
+to delete the tag:[git tag --delete v2.0]
+to push tags to remote repo:[git push --tags]
+to delete tags from remote repo:[git push origin --delete v1.0]
+---------------------------------------------------------------------------------------------------
 
