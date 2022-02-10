@@ -1,5 +1,6 @@
 
 [DEFAULT AND STATIC KEYWORDS WITH INTERFACE METHODS]:
+Now interfaces can have methods with body with the help of above keywords.
 
 interface I{//everything inside Interface is by default public
 
@@ -150,10 +151,14 @@ public class Threads{
 
             //Construcutor Refernce
             Thread t4=new Thread(B::new); //Runnable is now refering to the construcotr
-
+             [Passing constructor as an argument]
 
 		}
 	}
-}---------------------------------------------------------------------------------------------------------
+here we are passing functions and cinstrucotr as an arguments which makes java functional Programming language , where you can pass fnctions as arguments and return functions.
+Which is possible now with a help of Method References.
+}--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 

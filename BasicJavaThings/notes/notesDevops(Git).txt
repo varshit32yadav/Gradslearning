@@ -1,4 +1,13 @@
 DEVOPS:(Development and Operations in combination)[DEvelopmetn tools +Management(OPerational)tools]
+------------
+Commands in sequence to follow:
+git init
+git add file-name
+git status //optional
+git commit -m ""
+git log //optional
+git remote add origin //https:
+git push -u origin master
 
 --------------
 GIT:is one of the Devops tool.
@@ -36,3 +45,36 @@ from there you will passs work to staging area by command[git add .] then to loc
 [git add abc.java ] to add single file to the repo..
 [git add .]to add all the files in the folder to the repo..
 -----------------------------------------------------
+There are various branches:
+[for login you want diff branch to be created,for validation you want diff branch to be created ...so all these you dont want to modify in a master branch so]:-
+if multiple developers are working on same reository,then they will be pushing to differnet branches
+and all the branches will merge together to form main branch that is [master branch].
+---------------------------------------------------------------------------------------------------------------
+[CREATE A BRANCH]:
+
+If you want to work on something else ,then you should create a seperate branch for that..
+command: [git branch mynewBranch] ...now whatever datat was available to master branch ,it will be available to this branch also
+
+[SWITCH BRANCH]:
+command to switch branch: [git checkout branch-name]: in whichever branch you are ,
+only that branch content you can see.Other branch data will be hide from it in the folder
+-------------------------------------------------------------------------------------
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/varshit32yadav/varshit32yadav.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+---
+This error happens when you have a commit performed in your local git repository 
+and also a commit performed in your remote git repository.But both commits ae unaware of eachother.
+So you have to combine both of the commits together[that is called rebasing].
+
+comand:[git pull --rebase origin master ]: 
+By this command we will pull the file from remote to 
+local repo.. and then we gonna place the commits one after the other in local repo.
+NOw the branches have been sequenced properly and we are ready to push to our remote reository by
+performing [git push -u orgin master]for pushing the data to remote repo.
+----------------------------------------------------------------------------------------
+
