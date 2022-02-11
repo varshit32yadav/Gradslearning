@@ -107,6 +107,12 @@ to delete the tag:[git tag --delete v2.0]
 to push tags to remote repo:[git push --tags]
 to delete tags from remote repo:[git push origin --delete v1.0]
 ---------------------------------------------------------------------------------------------------
-[Branch conflict]:
-----------------------
+[Branch conflict]:it happens when 2 or more branches work on same file and modify it.
+While merging the branches [Conflict error occurs]so we have to make 
+changes int he file and decide the code that we wnat to keep in that file and then add and commit .
+eg.
+While merging the Ram branch in master branch conflcit error occured then decide change  that you want to keep in
+the file and add and commit it .
+------------------------------------------------------------
 to pull code from remote repo:[git clone (url)]
+-------------------------------------------------------------
