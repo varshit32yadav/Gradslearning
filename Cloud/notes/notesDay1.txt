@@ -1,0 +1,20 @@
+ealier we had client-server archotecture for communication.
+
+Now that server is replaced with CLoud.[all the applications like officce 365,gmail]
+are now running on cloud.
+-They are stored on a remote location.nothing is stoeed in your local PC.
+they are connected with the help of internet.
+----------------------------------------
+Need of CLoud Computing:we want the below things:
+1)CPU(Ram)
+2)Storage
+3)Database
+4)Networking
+5)Server Sprawl[setting up a new server for evry application created.Like this n number of servers are created ..
+which becomnes a challenge for the Data Centres to anage them. As every sever requires some energy to run]
+------------------------------------------------------
+At home you got Router[all the decices are connected to a switch(Router) ..now they can communicate with eachother
+and can have an internet connection also.]
+-----------------------------------------
+DNS[phone book]:[match domain name with IP address]
+-----------------------------------------

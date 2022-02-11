@@ -88,6 +88,7 @@ eg. to merge new branch content to master branch then you shpuld be inside maste
 
 [to delete branch from remote repository]:
 [git push origin --delete myNewBranch]
+to show all the branches[git branch -a]
 ------------------------------------------------------------------------------------------
 [Tagging]:to allocate version number
 
@@ -106,4 +107,6 @@ to delete the tag:[git tag --delete v2.0]
 to push tags to remote repo:[git push --tags]
 to delete tags from remote repo:[git push origin --delete v1.0]
 ---------------------------------------------------------------------------------------------------
-
+[Branch conflict]:
+----------------------
+to pull code from remote repo:[git clone (url)]
