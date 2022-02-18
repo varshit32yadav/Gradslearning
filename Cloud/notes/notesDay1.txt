@@ -90,13 +90,13 @@ eg...
 AWS
 AZURE
 ORACLE CLOUD
--------------------------------------------------------------------------------------- ------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 TYPES OF CLOUD COMPUTING RESPONSIBILTIES:
 
 1)ON-PREMISE(could be a private cloud):
 ..see the pic
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------
  Azure Deployment Model:
 
 1)Public cloud: Everything is built on cloud service provider. known as Native CLoud.
@@ -106,7 +106,116 @@ TYPES OF CLOUD COMPUTING RESPONSIBILTIES:
 3)Hybrid:Using both On-Premise and cloud service provider.
 
 4)Cross-cloud: using multiple cloud service providers.
------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL COST OF OWNERSHIP:
+
+OPEX:(OPERATIONAL EXPENDITURE)[YOU ONLY HAVE TO PAY FOR THE NON-PYSICAL COST]
+AZURE:(HAS TO PAY SUBSCRIPTION FEE) 75% cheaper then on-premise
+
+CAPEX:[CAPITAL EXPENDITURE](YOU have to spend money for physical infrastructure)
+ON-PREMISE:(has to pay softwate lisence fee)
+total cost of it is more then any cloud service provider
+extra pay is for:-
+1)Physical Security
+2)Consifguration
+3)IT Personal
+4)Maintainance
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CLOUD ARCHITECTURE TERMINOLIGIES:
+
+1)HIGH AVAILABILITY:
+
+YOUR SERVICE should remain available ensuring no single point of failure.
+By having multiple severs and that to in different data centres.
+SO if 1 or2 availability zones are not working then your service can still remain availabe.
+
+Azure Load Balancer:it evenly distribute the load to multiple servers in one or many data centres so if data centre or server is unavailable ,it can route the traffic to available data centre or sserver.
+
+
+2)High Scalabiltity:
+increase your capacity based on increasing demand of the traffic ,memory and computing power.
+BY_
+1)Verstical scaling: where you upgrade to a bigger server with bog ram ,memmory etc.
+2)Horizontal scaling : where you can add more servers of same size availbale.
+
+
+3) High Elastiicty: automatically increase or decrease your capacity based on increasing/decreasing demand of the traffic ,memory and computing power.
+
+Horizontal Scaling : 
+ i)SCaling in:  add more servers of same size
+ ii)Scaling out:remove more servers of same size.
+
+Vertical SCaling is not used.
+
+[Azure VM Scale sets ]:are used for high elasticity.
+[SQL Server Stretch Database]:Dynamically stretch the warm and cold transactional data from Microsoft SQL server 2016 to Microsoft AZure.
+
+4)High Durability:reover data from a disaster and prevent loss of data
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The Evolution of Computing from:
+dedicated Servers----->to
+Virtual MAchines(Hypervisor)[multiple VMs sharing single OS(mutliple customers are sharing the single server)]----->to
+Containers(Docker daaemon)[runnig multiple containers with in a VM(you can maximisee the space left in VM. Each container can be running on different OS(more flexiblef))]----->to
+Functions(we have taken the applications that are running on our conatiners and broke them into little pieces of code called Funcitons)[Serverless Compute].
+
+details in pic folder...
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Paired REgions:(for Disaster REcovery)
+[Azure Geo-redundant Storage(GRS)] :(replicates the data to secondary region automatically ,ensures that the data is durable even when the primary reion is not recoverable)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ [Recommended Region ]:Most of the cloud services will be available and
+ is designed to  support Availabilty zones(AZs)
+
+ [Alternate Region(other)]: Not designed to support AZs.
+ 
+Gernral Availabilty[GA]:is when a service is considered ready to be used publicly everywhere.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Availability zone(AZ) is a pysical loaction made up of onr or more datacentres.
+
+each recommended region has 3 Availability zone(AZ) generally.
+Availability zone(AZ) is a combination of fault domain and update domain.
+
+fault domain:grpupoing up of hardware to avoid single oint of failure.
+Update domain:to ensure you resources dont go offline while updating hardware and software.
+
+when creating availability set:
+fault domain:2(means your VM will be having 2 servers having same data for preventing single point of failure).
+update domain:5(5 diff machines(servers) isolated from eachother).
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
