@@ -5,16 +5,116 @@ are now running on cloud.
 -They are stored on a remote location.nothing is stoeed in your local PC.
 they are connected with the help of internet.
 ----------------------------------------
-Need of CLoud Computing:we want the below things:
+Need of CLoud Computing:we want the below things to be sorted for us thats why we need Cloud comp:
 1)CPU(Ram)
 2)Storage
 3)Database
 4)Networking
-5)Server Sprawl[setting up a new server for evry application created.Like this n number of servers are created ..
-which becomnes a challenge for the Data Centres to anage them. As every sever requires some energy to run]
+5)Server Sprawl[Data centres started running out of space]
+[setting up a new server for evry application created.Like this n number of servers are created ..
+which becomnes a challenge for the Data Centres to manage them. As every sever requires some energy to run]
 ------------------------------------------------------
+average lifecycle of any hardware is 3to5 years.
+----------------------------------------------------
 At home you got Router[all the decices are connected to a switch(Router) ..now they can communicate with eachother
 and can have an internet connection also.]
 -----------------------------------------
 DNS[phone book]:[match domain name with IP address]
------------------------------------------
+
+
+----------------------------------------------------------------------------------------------
+[Youtube Azure course]:
+---
+What is cloud computing?
+
+earliest to latest:
+
+1)Dedicated Server:
+One single physical machine(server) deicated to a single business.(very expensive,high ,maintanance)
+Runs a single web-app/site.
+
+2)Virtual Private Server:
+One single physical machine dedicated to single business but can be virtualised into 
+sub-machines and can run multiple apps/sites into multiple sub-machines.
+
+3)Shared hosting:
+Single server shared by multiple businesses.
+But if 100 people are sharing single srever then if  person is using more resourves  then others then they 
+will suffer.
+
+4) Cloud  Hosting: 
+Multiple servers act as a single system(Cloud).
+and that cloud is abstracted into multiple cloud services.
+[FLexible,Scalable,cost-effective]
+----------------------------------------------------------------------------------------------------------------
+
+COMMON CLOUD SERVICES:
+
+1)Compute:   you can have a virtual machine that can run application,code,and programs.
+2)Storage:   virtual hard drive that can store files.
+3)Networking:you can have a virtual network
+4)Database:  you can have a virtual database for storing the data for genral purpose web-application.
+--------------------------------------------------------------------------------------------------------------------
+
+Benefits for CLOUD COMPUTING:
+
+1)cost-effective:pay as you go(PAYG)
+2)Global:youc can launch your work globally.You just have to choose a region.
+3)Reliable(fault torelrant) :data backup
+4)Scalable: Increase or decrease the services on demand.
+----------------------------------------------------------------------------
+
+TYPES OF CLOUD COMPUTING:
+pyramid:
+saas
+paas
+Iaas
+
+1)SAAS(Software as Service): Basically for customers.
+The product is run and managed by service provider
+You just have to use the product
+eg. Salesforce,Gmail,office 365.
+
+2)PAAS(Platform as a Service):Basically for the developers.
+you focus on developing and managing the apps and need not to 
+worry about the configuring and understanging the hardware or OS.
+eg... 
+elastic Beanstalk in AWS:
+Google app emgine:
+Heroku:for launching web apps
+
+3)IAAS(Infrastructure as a Service):For administrators  .
+You can have access to networking and computers and data storage space.
+DOnt have to worry about the IT staff,data centres and hardware.
+eg...
+AWS
+AZURE
+ORACLE CLOUD
+-------------------------------------------------------------------------------------- ------------------------------------------------------------------
+
+TYPES OF CLOUD COMPUTING RESPONSIBILTIES:
+
+1)ON-PREMISE(could be a private cloud):
+..see the pic
+---------------------------------------------------------------------------------------------
+ Azure Deployment Model:
+
+1)Public cloud: Everything is built on cloud service provider. known as Native CLoud.
+
+2)Provate Cloud: Everything is built on company's datacentre.Known as On-premise.
+
+3)Hybrid:Using both On-Premise and cloud service provider.
+
+4)Cross-cloud: using multiple cloud service providers.
+-----------------------------------------------------
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------
+
