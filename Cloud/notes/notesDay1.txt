@@ -130,7 +130,8 @@ YOUR SERVICE should remain available ensuring no single point of failure.
 By having multiple severs and that to in different data centres.
 SO if 1 or2 availability zones are not working then your service can still remain availabe.
 
-Azure Load Balancer:it evenly distribute the load to multiple servers in one or many data centres so if data centre or server is unavailable ,it can route the traffic to available data centre or sserver.
+Azure Load Balancer:it evenly distribute the load(network traffic) to multiple servers in one or many data centres so if data centre or server is unavailable ,it can route the traffic to available data centre or server.
+it works on OSI layer 4(Transport layer).
 
 
 2)High Scalabiltity:
@@ -185,21 +186,145 @@ fault domain:2(means your VM will be having 2 servers having same data for preve
 update domain:5(5 diff machines(servers) isolated from eachother).
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+COMPUTING SERVICES:
+
+1)Azure Virtual Machines:
+2)AZure Container Instances:Docker as a service run containerized appson Azure without provisioning VM or server.
+3)Azure Kubernetes Service(AKS):to deploy,manage,scale containerized application.
+4)Azure Service Fabric:Tier 1 Enterprise container as a service.
+5)Azure Functions: pay for the only compute time you consume.
+6) Azure Batch:
+
+.....details in pic
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+STORAGE SERVICES:
+1)Azure BLob Storage:Object Serverless storage.Used to store very large filesand unstrucured files.PAy for what you store.
+2)Azure Disk Storage
+3)Azure FIle storage
+4)Azure Queue storage
+5)Azure table storage:Wide column-no sql datatbase to store unstuctured data
+....rest details in the pic
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Database Services:
+
+1)Azure Cosmos DB: A fully managed NoSql database. 
+2)Azure SQL database: A fully managed MS Sql database.
+3)SQL Server on Vms
+...in the pic
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+APPLICATION INTEGRATION SERVICES: services designed for the apps to communincate with eachother 
+
+1)Azure Notification Hub:Pub/Sub send push notification to any platform from any back end
+2)Azure API Apps:
+3)Azure BUs service:
+...in the pic
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEVELOPER AND MOBILE TOOLS:
+
+1)Azure SignalIR Service:
+Real-Time Meassaging, Easily add real-time web functionality to applications.Just lik Pusher.
+2) Azure App Service:for deployinmg and scaling web applications with .Net,Node.js,Java,Pythonetc.   just like Heroku
+3)Visual Studio: code editor(IDE)
+4)Xamarin:Mobile app framework  to create apps with .Net and Azure.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+AZURE DEVOPS SERVICES:
+
+1)Azure boards:      just like Kanban board for using agile tool plans
+2)Azure pipelines:   Build ,test,and deploy cI/CD that wroks with any language. connects to githuban and deploy continuously.
+3)Azure repos:       similar to git repos
+4)Azure test plans:  manual and exploratory testing tools
+...in the picff
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Azure RESOURCE MANAGER:
+
+IAC(Infrastrucutre as code):process of managing the computer data centres through machine-readable defination files,rather than physical hardware configuration.
+eg. to host a VM you can write a JSON script instead of manually configuring it and then hosting.
+
+1)Azure RESOURCE MANAGER(ARM):allows you tp programatically create Azure Resourcesvia JSON tmeplate
+..in the pic
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+AZURE QUICKSTART TEMPLATE:
+
+Azure Quickstart is a library of pre-made ARM templates provided by the communinty to help you quickly launch new projects for a variety of stack scenarios.
+
+eg. to deploy a Django app script is given by the communinty ...use that.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+vNets(Azure Virtual Network) and subnet :
+
+you can create virutal network and lanch your azure resources.
+you can chosse range of IPs using CIDR Range. eg. 65,536 Ip Adresses can be there.
+
+subnet: partition of IP network into multiple sub network.
+subnet needs to have smaller range of IP adresses than to vNet .. eg 256IP addresses
+
+Public subnet:can reach the internet
+Private subnet:can't reach the internet
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLOUD -NATIVE NETWORKING SERVCES:
+1)Azure DNS: provides ultra fast DNS responses and ultra-high domain availability.
+2)Azure vNet:crates virtual network for customers to launch their azrue resources.
+3)Azure load balancer
+...IN THE PIC
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Enterprise/Hybrid networking services:[when you are using networking services that would bridge on-premise to the cloud].
+
+1)Azure FRont door:scalable and secure entry point for fast delivery of your global application.
+2)Azure Express Route: connection between on-premise and Azure CLoud. 50 mbps to 10 gbps.
+3)...in the pic.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Azure traffic manager[operates at DNS layer to quickly access the DNS requests based on routing method of your choice.]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Azure DNS:
+
+it allows you to host your domains names on Azure.
+you can creaet your DNS zones and manage your DNS records.
+and doesnt allow you to purchase the Domains, only gives ability to manage DNS records.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Scale sets:[Elasticity]
+
+Allows you to group identical VMs and automatically increase or decrease the amount of servers based on:
+chnge in CPU.memory,disk,and network
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+IOT services:
+1)Iot Central: connects the IOT devices to the cloud a
+2)Iot Hub:     high reliable communication between Iot appp and the devices it manage
+3)IOT Edge:    fully managed service built on Azure IOT hub.It allows data processing and                            analysis nearest the IOT devices. 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Big data and Analytics Services on AZure:
+
+1)Azure Synapse Analytics{sql database warehouse}: to run sql queries against large db for things such as reporting.
+2)HDInsight:  Run open-source analytic software such as Hadoop,Kafka and Spark.
+3)Azure Databricks:
+4)Data LAke Analytics:
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+AI/ML services:
 
 
+1)Azure MAchine Learning Service:
+..see the pic
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Serverless services:
+serverless:[when an underlynig servers,infrastrucutre,OS is taken care by the cloud service provider.]
 
+Azure Functions:[runs small amount of code known as serverless functions in your fav language]
+2)Blob Storage:[Serverless object storage]
+3)Logic apps:
+4)Event GRid
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+----------------------------------------------------------------------------------------------------------------------------------------
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
