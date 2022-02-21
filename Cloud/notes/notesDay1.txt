@@ -315,17 +315,37 @@ serverless:[when an underlynig servers,infrastrucutre,OS is taken care by the cl
 Azure Functions:[runs small amount of code known as serverless functions in your fav language]
 2)Blob Storage:[Serverless object storage]
 3)Logic apps:
-4)Event GRid
+4)Event Grid:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+Security Compliance program 
+..pic
 ----------------------------------------------------------------------------------------------------------------------------------------
+Azure Acitive Directory(Azure AD):cloud based identitiy and access management service,
+which helps your employees sign in nd acess resources.
+
+it can grant access to external resources:
+..pic
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Multi factor authentication:authentoication from 2 devices.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Azure DDos protection:
+
+DDos(Distributed Denial of  Service):
+malacious attempt to disrupt normal traffic by flooding a website with large amounts of fake traffic.
+
+Azure offers 2 tiers of DDOS Protection:
+1)DDOs Protection basic (Free ,already turned on )
+2)DDOs standard :2294$ /month[Metrics,alerts,Reporting..etc]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Azure firewall:
+cloud-based network security that protects your Azure virtual network.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Azure Advanced Threat Protection:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
