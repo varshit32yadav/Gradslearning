@@ -21,10 +21,12 @@ public class Echoer extends Thread{
             BufferedReader input=new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter output = new PrintWriter(socket.getOutputStream(),true);
             String echoString=input.readLine();
+            System.out.println("string obtained"+echoString);
+            Thread.sleep(10000);
             while(!echoString.equals("exit")){
                 output.println("echoed from the server: "+echoString);
             }
-        }catch(IOException e){
+        }catch(IOException | InterruptedException e){
             System.out.println("OOPS :"+e.getMessage());
         }
         finally{

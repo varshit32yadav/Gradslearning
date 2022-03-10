@@ -1,0 +1,227 @@
+Task 1):[
+Steps -
+A) Create App service from the portal with required attributes.
+
+    Create an Azure Account using your personal email id (30 days free trial):
+        Recommendation: Pair up with someone
+        Only one person should create the Azure Account.
+        Navigate to Azure Active Directory
+        Go to Users (left pane)
+        Select New User
+        Invite your colleague.
+    Login into the portal: https://portal.azure.com/#home
+    Create a resource group: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal
+    Create a App Service Plan: https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans
+    Create an  App Service: https://docs.microsoft.com/en-us/azure/app-service/
+    Walk through the attribute of App service: https://docs.microsoft.com/en-us/azure/app-service/ - Navigate to How guide on left panel
+
+B) Deploy your App from IDE to App Service.
+https://docs.microsoft.com/en-gb/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux
+https://docs.microsoft.com/en-us/learn/modules/deploy-java-spring-boot-app-service-mysql/5-exercise-deploy
+
+Steps -
+       1: Actually deploy App into the App service
+       2: Browse the App service
+
+C) all0w access to guest user:
+Roles based access control:
+https://docs.microsoft.com/en-us/azure/role-based-access-control/
+External Users:
+https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-external-users
+
+Success Criteria:
+Document/Note down the steps you have taken
+You will need to be able to demo this at the end of the sprint. 
+]                                                               
+---------------------------------------
+Takeaway from Story 1:
+Take away from the creating and inviting users:
+1) instead of inviting user from USers option... just go the the resource and  assign role and mention the person's id over there only.
+2) id pass for the created user: [create user ka password :Chennai@123   email:    varshit@karthikmpesupes.onmicrosoft.com .
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+-------------------------------------------------------------------------------------------------------------
+Story 2):
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Story 3):  Reference youtube[https://www.youtube.com/watch?v=l5k1ai_GBDE]
+
+creating resources from terrafrom not from portal[simple scripts to provision resources to the cloud using terraform]
+
+[Terraform]:[Rather then manually configuring the resources from  the cloud portal, we can easilt write small scripts of few lines to obtain the resources. ]
+1)It is Infrastructure as a code tool 
+used for building ,changing and versioning infrstructure safely and efficiently.
+2)It supports all major cloud Providers.[it can automate any cloud Provider]
+
+-----
+in normal cSP you have to do follow :
+1)Infrastrucutr provisioning [done by devops teams]
+2)followed by application deployment[done by software developers].
+
+in the 1st step[Infrastrucutr provisioning ],you have to basically create all the resources for your app to run on.
+eg. create virtual private network , server instance , install docker ,database instance , create users ,
+storage etc..[]
+
+then in step 2[followed by application deployment]you basically deploy our app.
+
+Terraform helps you with 1st step[Infrastrucutr provisioning],where it automate the infrastructure with scripts by creating the resources in the correct order.
+
+using it you can : 
+1)create infrastrucutre
+2) change the infrastructure according to the needs.
+--------------------------------------
+How does Terraform connects to the platform provoder:
+it has 2 main components
+1)core[conf file + state]
+2)Providers[Aws/Azure[IAAS] , kubernetes [PAAS] , Fastly[SAAS]  ]
+
+Core uses 2 inputs [ TF-config FILE (that contains scripts for the resources you want to 
+create) and 2nd is STATE(which takes care of current structure of infrastrucutre)]
+
+So the Core now creates a plan using these 2 inputs (like what needs to be updated/creatd/destroyed)
+
+Core comapres the current state and the desired state(state which you configured by writing configuration files for the resources). Then it figures out what needs to be updated/creatd/destroyed inorder to reach to the desired state .
+
+one's he plan is created by the Core , it then uses Providers to execute the plan,
+-------------------------------------
+
+Terraform files are written in declarative appraoch [instead of defining what needs to be done ,you define the end state of your config file]
+
+with the declarative apprach you jsut adjustt the old config file and re-execute it , instead of adding new set of instrucutions(which is imperative).
+
+
+
+----
+both are for  provisioning and configuruing  infrastructure but--
+Terraform is used mainly  for provisioning infrastructure
+Ansible is used(once the infr is provisoined now ansible can be used ) for configuruing the infrastructure,deploy apps and update/install softwares.
+----------------------
+commands in terraform to go through differnet stages
+1)refresh: to get the current state
+2)plan: create an excution plan 
+3)apply: excute the plan
+4)destroy: to destroy the resources in correct order one by one .
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Story 4):
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Story 5):
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
+Notes:
+
+------------------------------------------------------------------------------------------------------
+[Resource group]:[leyman terms: virtual folder where you put your resources and share its access to others].
+A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group.
+The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you are specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
+
+-------------------------------------------------------------------------------------------
+[App Service]:
+it is platform as a service offering :
+we use it to host :
+1)web apps
+2)REST API's
+3)Backend services for mobile applications
+
+App Service documentation:
+
+Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
+------------------------------------------------s
+-------------------------------------------------------------------------
+Azure App Service plan:
+to careate an app service ,you need to create an app service plan.
+
+without an app service plan ,you cant create an app service. As, app serv plan defines the compute resources required for your application to run.
+
+https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans
+----------------------------------------------------------------------------------------------------------------------
+What is a JSP file?
+Image result for index.jsp
+A JSP file is a Java document used to dynamically generate a webpage using Jakarta Server Pages (JSP) functions.
+-----------------------------------------------------------------------------------------------------------------------------------------
+An artifact is a byproduct of software development that helps describe the architecture, design and function of software. Artifacts are like roadmaps that software developers can use to trace the entire software development process. Artifacts might be databases, data models, printed documents or scripts.
+
+What is artifact in Java?
+An artifact is a file, usually a JAR, that gets deployed to a Maven repository. A Maven build produces one or more artifacts, such as a compiled JAR and a "sources" JAR. Each artifact has a group ID (usually a reversed domain name, like com. example. foo), an artifact ID (just a name), and a version string.
+----------------------------------------------------------------------------------------------------------------------------
+Deployment center:
+1)Azure Repo
+2)Github
+3)Bitbucket
+4)Local Git
+5)FTP
+------------------------------------------------------------------------------------------------------------------
+Deployment slots: are there to basically deploy multiple versions of the app in the same app service.
+there is main deployment slot :[Production],where your 100% of the traffic is diverted
+You can create a new slot for updated version of the app.
+------------------------------------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=-If7RN25DXs    --azure repo
+https://www.youtube.com/watch?v=0a-Uuz-CfGg    --azure repo
+
+
+git credentials:
+username:varshit.ip
+password:2ezkncffcvevp4ds7hf73c6z2nh4dgfmhyfhamzybwecemsz7nla
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+story 5 before 4 ..
+setting up azure repo--terrafrom--integrating devops pipleine
+
+https://docs.microsoft.com/en-us/azure/role-based-access-control/
+
+3)creating resources from terrafrom not portal[simple scripts to provision resourcces to the cloud]
+story4)
+
+questions:
+1)deleted resource group before app service plan
+2)deploy spring boot applicaiton
+3)which ide is best for work 
+4)error when deploying it to app service plan.
+5)Invalid Data: Invalid artifact, java se app service only supports .jar artifact
+6) faced problem in building the project by commands ...                                                                                                                                                                               
