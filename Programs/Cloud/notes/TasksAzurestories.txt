@@ -37,7 +37,7 @@ You will need to be able to demo this at the end of the sprint.
 Takeaway from Story 1:
 Take away from the creating and inviting users:
 1) instead of inviting user from USers option... just go the the resource and  assign role and mention the person's id over there only.
-2) id pass for the created user: [create user ka password :Chennai@123   email:    varshit@karthikmpesupes.onmicrosoft.com .
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
 -------------------------------------------------------------------------------------------------------------
@@ -170,9 +170,6 @@ https://www.youtube.com/watch?v=-If7RN25DXs    --azure repo
 https://www.youtube.com/watch?v=0a-Uuz-CfGg    --azure repo
 
 
-git credentials:
-username:varshit.ip
-password:2ezkncffcvevp4ds7hf73c6z2nh4dgfmhyfhamzybwecemsz7nla
 
 
 
